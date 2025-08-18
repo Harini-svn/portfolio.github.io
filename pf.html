@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Harini - Developer Portfolio</title>
+  <style>
+    :root {
+      --main-color: #0070f3;
+      --text-dark: #222;
+      --text-light: #555;
+      --bg-light: #fafbfc;
+      --shadow: 0 4px 24px rgba(0,0,0,0.07);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+    }
+    header {
+      background: #fff;
+      box-shadow: var(--shadow);
+      padding: 40px 0 30px 0;
+      text-align: center;
+      animation: fadeInDown 1s;
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-50px);}
+      100% { opacity: 1; transform: none;}
+    }
+    .profile-img {
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--main-color);
+      margin-bottom: 20px;
+      box-shadow: 0 4px 16px rgba(0,112,243,0.08);
+      transition: box-shadow 0.3s;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+    header p {
+      font-size: 1.15rem;
+      max-width: 480px;
+      margin: 0 auto;
+      color: var(--text-light);
+    }
+    nav {
+      margin: 36px 0 0 0;
+      text-align: center;
+    }
+    nav a {
+      display: inline-block;
+      margin: 0 22px;
+      color: var(--main-color);
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      transition: color 0.3s;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      margin: 0 auto;
+      width: 0%;
+      height: 2px;
+      background: var(--main-color);
+      transition: width 0.3s;
+    }
+    nav a:hover { color: #333; }
+    nav a:hover::after { width: 90%; }
+    main {
+      max-width: 950px;
+      margin: 40px auto;
+      padding: 0 24px;
+      animation: fadeIn 1.2s;
+    }
+    @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+    section { margin-bottom: 58px; }
+    h2 {
+      font-size: 2rem;
+      color: var(--main-color);
+      margin-bottom: 20px;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 0;
+      list-style: none;
+      animation: fadeInLeft 1s;
+    }
+    @keyframes fadeInLeft { 0% { opacity: 0; transform: translateX(-40px);} 100% { opacity: 1; transform: none;} }
+    .skills-list li {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 8px rgba(0,112,243,0.07);
+      padding: 11px 21px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--main-color);
+      transition: transform 0.23s;
+    }
+    .skills-list li:hover {
+      transform: scale(1.07) rotate(-1deg);
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+    }
+    .project {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.19s, box-shadow 0.19s;
+    }
+    .project:hover {
+      transform: translateY(-7px) scale(1.01);
+      box-shadow: 0 8px 24px rgba(0,112,243,0.12);
+    }
+    .project-title {
+      color: var(--main-color);
+      font-size: 1.18rem;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+    .project-desc {
+      color: var(--text-light);
+      margin-bottom: 16px;
+    }
+    .project-links a {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      background: var(--main-color);
+      padding: 6px 18px;
+      border-radius: 5px;
+      margin-right: 11px;
+      font-size: 0.98rem;
+      margin-bottom: 1px;
+      transition: background 0.23s;
+    }
+    .project-links a:hover { background: #333; }
+    .contact-form-wrapper {
+      background: #fff;
+      border-radius: 13px;
+      box-shadow: var(--shadow);
+      padding: 30px;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeInUp 1s;
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(50px);}
+      100% { opacity: 1; transform: none;}
+    }
+    .contact-form label {
+      color: var(--main-color);
+      font-weight: 500;
+      margin-bottom: 5px;
+      display: block;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 11px 13px;
+      margin-bottom: 17px;
+      border: 1px solid #e4e6ea;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: border 0.22s;
+      font-family: inherit;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--main-color);
+      outline: none;
+    }
+    .contact-form button {
+      background: var(--main-color);
+      color: #fff;
+      border: none;
+      padding: 11px 33px;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.25s;
+    }
+    .contact-form button:hover {
+      background: #333;
+    }
+    footer {
+      text-align: center;
+      background: #fff;
+      color: #aaa;
+      font-size: 1rem;
+      padding: 22px 0;
+      margin-top: 46px;
+      box-shadow: 0 -1px 12px rgba(0,0,0,0.03);
+      letter-spacing: 0.1em;
+    }
+
+    /* Responsiveness */
+    @media (max-width:650px) {
+      header, main { padding-left: 10px; padding-right: 10px;}
+      .skills-list { flex-direction: column; align-items: flex-start;}
+      .contact-form-wrapper { padding: 15px;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="C:\Users\shari\OneDrive\Desktop\HARINI\HARINI\Harini image.jpg" alt="Your Name" class="profile-img"/>
+    <h1>Harini</h1>
+    <p>
+      Passionate Web Developer skilled in modern JavaScript frameworks, clean UI/UX design, and building delightful digital experiences.
+    </p>
+    <nav>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  
+  <main>
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>HTML5</li>
+        <li>CSS3 / SASS</li>
+        <li>JavaScript (ES6+)</li>
+        <li>React.js</li>
+        <li>Node.js</li>
+        <li>Git / GitHub</li>
+        <li>Responsive Design</li>
+        <li>API Integration</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project">
+          <div class="project-title">Task Tracker App</div>
+          <div class="project-desc">
+            A React-powered productivity tool for managing daily tasks with a modern, minimal interface.
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/task-tracker" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://tasktracker.yoursite.com/" target="_blank" rel="noopener">Live Demo</a>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-title">Portfolio Website Template</div>
+          <div class="project-desc">
+            A customizable, fully responsive portfolio template built with best practices—perfect for developers looking to showcase their work.
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername/portfolio-template" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://portfolio.yoursite.com/" target="_blank" rel="noopener">Live Demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <div class="contact-form-wrapper">
+        <form class="contact-form" autocomplete="off">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="Name" placeholder="Your Name" required />
+          
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="example@gmail.com" required />
+          
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Type your message here..." rows="5" required></textarea>
+          
+          <button type="submit" disabled>Send Message</button>
+          <!-- Make this functional by adding backend or third-party form service -->
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Your Name &mdash; All Rights Reserved.
+  </footer>
+
+</body>
+</html>
